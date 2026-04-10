@@ -11,4 +11,5 @@ dependencies = [
 ]
 
 [project.scripts]
-signup = "src.signup:github_signup"
+signup = "src.signup.flow:github_signup"
+pat = "src.pat.cli:main"
