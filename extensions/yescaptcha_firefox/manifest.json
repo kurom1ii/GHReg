@@ -1,0 +1,63 @@
+{
+  "name": "__MSG_name__",
+  "version": "0.3.2",
+  "manifest_version": 2,
+  "description": "__MSG_pluginDesc__",
+  "default_locale": "en",
+  "icons": {
+    "128": "image/log.png"
+  },
+  "browser_action": {
+    "default_title": "test",
+    "default_icon": "image/log.png",
+    "default_popup": "popup/index.html"
+  },
+  "background": {
+    "scripts": [
+      "config.js",
+      "_auto_config.js",
+      "background.js"
+    ]
+  },
+  "options_ui": {
+    "page": "option/index.html"
+  },
+  "content_scripts": [
+    {
+      "all_frames": true,
+      "js": [
+        "content/captcha_manager.js"
+      ],
+      "css": [
+        "content/index.css"
+      ],
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "run_at": "document_end"
+    },
+    {
+      "all_frames": false,
+      "js": [
+        "content/context_responder.js"
+      ],
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "run_at": "document_start"
+    }
+  ],
+  "permissions": [
+    "storage",
+    "contextMenus",
+    "<all_urls>",
+    "alarms"
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "{defcf59e-d157-44f0-b224-4b1f78f85e46}"
+    }
+  }
+}

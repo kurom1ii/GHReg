@@ -1,0 +1,14 @@
+[project]
+name = "ghreg"
+version = "0.1.0"
+description = "GitHub account registration automation with Camoufox stealth browser"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "camoufox[geoip]",
+    "requests",
+    "curl-cffi",
+]
+
+[project.scripts]
+signup = "src.signup:github_signup"

@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv/
+
+# Browser profiles
+.chrome_profile/
+camoufox_profile/
+
+# Data
+data/funcaptcha/
+
+# Logs & DB
+*.log
+*.db

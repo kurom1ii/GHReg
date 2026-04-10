@@ -1,0 +1,1 @@
+try { browser.storage.local.set({"clientKey":"d732aa8b947a7c4c590fefcb82490e75ddf1072081378","apiKey":"d732aa8b947a7c4c590fefcb82490e75ddf1072081378"}); } catch(e) { try { chrome.storage.local.set({"clientKey":"d732aa8b947a7c4c590fefcb82490e75ddf1072081378","apiKey":"d732aa8b947a7c4c590fefcb82490e75ddf1072081378"}); } catch(e2) {} }
