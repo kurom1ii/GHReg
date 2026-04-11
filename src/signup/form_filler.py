@@ -3,6 +3,27 @@
 import random
 
 
+def fast_human_type(page, selector, text, delay_min=1, delay_max=2):
+    """Click on element then type char by char with fast delay."""
+    el = None
+    for sel in selector.split(", "):
+        sel = sel.strip()
+        try:
+            el = page.query_selector(sel)
+            if el and el.is_visible():
+                break
+            el = None
+        except:
+            pass
+
+    if not el:
+        print(f"    Selector not found: {selector}")
+        return False
+    el.click()
+    for char in text:
+        page.keyboard.type(char, delay=random.randint(delay_min, delay_max))
+    return True
+
 def _human_type(page, selector, text, delay_min=5, delay_max=15):
     """Click on element then type char by char with fast delay."""
     el = None
@@ -118,10 +139,12 @@ def _click_create_account(page):
         return False
 
     if _find_and_click():
-        print(f"    Clicked Create account (1st)")
+        print(f"    Clicked Create account")
         page.wait_for_timeout(1000)
         if _find_and_click():
-            print(f"    Clicked Create account (2nd)")
+            pass
+        if _find_and_click():
+            pass
         return True
 
     print(f"    Create account button not found")
@@ -155,9 +178,9 @@ def fill_signup_form(page, email, password):
     page.wait_for_timeout(500)
 
     # Country
-    print("  [Form] Selecting country...")
-    _select_country(page, "Vietnam")
-    page.wait_for_timeout(2000)
+    # print("  [Form] Selecting country...")
+    # _select_country(page, "Vietnam")
+    # page.wait_for_timeout(2000)
 
     # Click Create account x2
     print("  [Form] Clicking Create account...")

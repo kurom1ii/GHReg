@@ -4,7 +4,7 @@ import time
 import requests
 
 from .config import (
-    ROTATE_IP_API, ROTATE_WAIT, HOMEPROXY_TOKEN, HOMEPROXY_MERCHANT_ID,
+    ROTATE_IP_API, HOMEPROXY_TOKEN, HOMEPROXY_MERCHANT_ID,
     LIST_PROXY_API, CHANGE_INFO_API, PROXY_ID,
 )
 
@@ -35,8 +35,6 @@ def rotate_ip():
             print(f"  IP rotated: {new_ip}")
             if proxy_str:
                 print(f"  Proxy: {proxy_str}")
-            print(f"  Waiting {ROTATE_WAIT}s...")
-            time.sleep(ROTATE_WAIT)
             return True
         else:
             msg = data.get("message", str(data))

@@ -19,3 +19,14 @@ data/funcaptcha/
 # Logs & DB
 *.log
 *.db
+
+# Sessions
+.sessions/
+gh-check/target/
+gh-check/data/*.txt
+.claude/
+.theme
+cf-email-dashboard/node_modules/
+cf-email-dashboard/.next/
+.vscode/
+cf-email-dashboard/.env.local

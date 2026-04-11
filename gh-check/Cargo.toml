@@ -1,0 +1,35 @@
+[package]
+name = "gh-check"
+version = "0.2.0"
+edition = "2021"
+
+[dependencies]
+axum = { version = "0.8", features = ["macros"] }
+tokio = { version = "1", features = ["full"] }
+tokio-stream = "0.1"
+rquest = { version = "5.1", features = ["cookies", "json", "gzip", "deflate"] }
+rquest-util = "2.2"
+deadpool-redis = "0.18"
+redis = { version = "0.27", features = ["tokio-comp"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+scraper = "0.22"
+totp-rs = { version = "5", features = ["gen_secret"] }
+tower-http = { version = "0.6", features = ["cors", "trace"] }
+tower = "0.5"
+dashmap = "6"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+anyhow = "1"
+regex = "1"
+chrono = { version = "0.4", features = ["serde"] }
+futures = "0.3"
+rand = "0.8"
+percent-encoding = "2"
+async-stream = "0.3"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+strip = true

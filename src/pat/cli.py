@@ -43,6 +43,8 @@ Examples:
                         help="Permission preset")
     parser.add_argument("--perm", action="append", default=[],
                         help="Custom permission key=value, can specify multiple")
+    parser.add_argument("-t", "--totp-secret", default=None,
+                        help="TOTP secret for 2FA (base32)")
     parser.add_argument("-o", "--output", default="github_tokens.json",
                         help="Token output file (default github_tokens.json)")
 
@@ -56,7 +58,7 @@ Examples:
 
     session = cffi_requests.Session(impersonate="chrome")
 
-    if not github_login(session, args.username, args.password):
+    if not github_login(session, args.username, args.password, args.totp_secret):
         sys.exit(1)
 
     if not github_sudo(session, args.password):

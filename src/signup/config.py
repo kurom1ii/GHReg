@@ -15,7 +15,6 @@ HOMEPROXY_MERCHANT_ID = "56cf5b7e-37ec-4589-8f5b-51ff94694126"
 ROTATE_IP_API = f"https://app.homeproxy.vn/api/v2/proxies/{PROXY_ID}/rotate"
 LIST_PROXY_API = "https://app.homeproxy.vn/api/v2/users/proxies"
 CHANGE_INFO_API = "https://app.homeproxy.vn/api/v2/orders/change-info-proxies"
-ROTATE_WAIT = 5
 
 PROXY = {
     "server": f"http://{PROXY_HOST}:{PROXY_PORT}",
